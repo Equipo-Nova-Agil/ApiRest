@@ -1,1 +1,1 @@
-web: gunicorn ApiRest.wsgi --log-file -
+web: gunicorn ApiRest.wsgi
