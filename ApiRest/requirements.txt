@@ -6,5 +6,5 @@ PyMySQL==1.0.2
 pytz==2021.3
 setuptools==56.0.0
 sqlparse==0.4.2
-gunicorn
+gunicorn==20.1.0
 whitenoise
