@@ -85,7 +85,7 @@ DATABASES = {
         'PORT':'3306',
         'USER':'wz2gsjgedglpxr0s',
         'PASSWORD': 'uq3r2saboqym5e0v',
-        'NAME':'	q64cm9wp1pcmufr9',
+        'NAME':'q64cm9wp1pcmufr9',
         'OPTIONS':{
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
