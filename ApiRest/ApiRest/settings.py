@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'ApiRest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST':'127.0.0.1',
+        'HOST':'localhost',
         'PORT':'0.0.0.0',
         'USER':'root',
         'PASSWORD': 'angela',
