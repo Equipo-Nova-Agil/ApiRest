@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-va_g77hn)^bh&j5pawcw(&2(wxi+a6ijn-4uvrkc(-45offgx#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
 ALLOWED_HOSTS = []
 
 
@@ -48,7 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleaware.WhiteNoiseMiddleware',
+
+    
 ]
 
 ROOT_URLCONF = 'ApiRest.urls'
