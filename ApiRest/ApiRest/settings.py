@@ -27,7 +27,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sleepy-forest-23219.herokuapp.com']
 
 
 # Application definition
