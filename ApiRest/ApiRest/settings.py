@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'ApiRest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST':'127.0.0.1',
+        'HOST':'x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         'PORT':'3306',
-        'USER':'root',
-        'PASSWORD': 'angela',
-        'NAME':'misiontic',
+        'USER':'wz2gsjgedglpxr0s',
+        'PASSWORD': 'uq3r2saboqym5e0v',
+        'NAME':'	q64cm9wp1pcmufr9',
         'OPTIONS':{
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
