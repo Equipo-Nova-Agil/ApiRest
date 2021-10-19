@@ -81,14 +81,13 @@ WSGI_APPLICATION = 'ApiRest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'HOST':'mysql.server',
+        'PORT':'',
         'USER':'root',
         'PASSWORD': 'angela',
         'NAME':'misiontic',
         'OPTIONS':{
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", 
-             'read_default_file': '/opt/lampp/etc/my.cnf'
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
 
     }
