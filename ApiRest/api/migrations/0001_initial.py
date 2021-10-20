@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Usuario',
             fields=[
-                ('id_usuarios', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id_usuarios', models.IntegerField(primary_key=True, serialize=False)),
                 ('nombre', models.CharField(max_length=45)),
                 ('apellido', models.CharField(max_length=45)),
                 ('edad', models.IntegerField(null=True)),
