@@ -4,7 +4,7 @@ from django.db import models
 
 #Se crean los modelos como las tablas de la base de datos
 class Estado(models.Model):
-    id_estado=models.IntegerField(primary_key=True)
+    id_estado=models.CharField(primary_key=True)
     estado=models.CharField(max_length=30)
 
 class Rol(models.Model):
@@ -13,7 +13,7 @@ class Rol(models.Model):
 
 
 class Usuario(models.Model):
-    id_usuarios = models.IntegerField(primary_key=True)
+    id_usuarios = models.CharField(primary_key=True,max_length=100)
     nombre = models.CharField(max_length=45)
     apellido = models.CharField(max_length=45)
     edad = models.IntegerField(null=True)
