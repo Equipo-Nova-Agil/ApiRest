@@ -35,7 +35,21 @@ class ViewUsuario(View):
             return JsonResponse(datos)
 
     def post(self, request):
-        print(request.body)
+        jd=json.loads(request.body)
+        Usuario.objects.create(
+            id_usuarios=jd['id_usuarios'], 
+            nombre=jd['nombre'],
+            edad = jd['edad'],
+            genero = jd['genero'],
+            correo = jd['correo'],
+            telefono = jd['telefono'],
+            fecha_registro = jd['fecha_registro'],
+            tipo = jd['tipo'],
+            direccion = jd['direccion'],
+            password = jd['password'],
+            id_rol = Rol.objects.get(id_rol = jd['id_rol']),
+            id_estado = Estado.objects.get(id_estado = jd['id_estado'])
+            )
         datos={'mensaje': " Exitoso" }
         return JsonResponse(datos)
 
@@ -54,8 +68,8 @@ class ViewUsuario(View):
             usuario.tipo = jd['tipo']
             usuario.direccion = jd['direccion']
             usuario.password = jd['password']
-            usuario.id_estado_id = jd['id_estado_id']
-            usuario.id_rol_id = jd['id_rol_id']
+            usuario.id_rol_id =Rol.objects.get(id_rol= jd['id_rol'])
+            usuario.id_estado = Estado.objects.get(id_estado= jd['id_estado'])
             usuario.save()
             datos={'mensaje': " Exitoso" }
         else:
@@ -104,11 +118,11 @@ class ViewEstado(View):
             return JsonResponse(datos)
 
     def post(self, request):
-
-        jd=json.dumps(request.body.decode('utf-8'))
-        
-        #Estado.objects.create(id = jd['id_estado'], estado = jd['estado'])
-        #Estado.objects.create(estado=jd['estado'])
+        jd=json.loads(request.body)
+        Estado.objects.create(
+            id_estado=jd['id_estado'], 
+            estado=jd['estado'],
+        )
         datos={'mensaje': " Exitoso" }
         return JsonResponse(datos)
 
@@ -164,6 +178,15 @@ class ViewProducto(View):
             return JsonResponse(datos)
 
     def post(self, request):
+
+        jd=json.loads(request.body)
+        Producto.objects.create(
+            id_producto=jd['id_producto'], 
+            id_tienda = Tienda.objects.get(id_tienda = jd['id_tienda']),
+            nombre=jd['nombre'],
+            precio = jd['precio'],
+            seccion = jd['seccion'],
+        )
         datos={'mensaje': " Exitoso" }
         return JsonResponse(datos)
 
@@ -175,7 +198,7 @@ class ViewProducto(View):
             producto.nombre = jd['nombre']
             producto.precio = jd['precio']
             producto.seccion = jd['seccion']
-            producto.id_tienda_id = jd['id_tienda_id']
+            producto.id_tienda = Tienda.objects.get(id_tienda = jd['id_tienda'])
             producto.save()
             datos={'mensaje': " Exitoso" }
         else:
@@ -222,6 +245,11 @@ class ViewRol(View):
             return JsonResponse(datos)
 
     def post(self, request):
+        jd=json.loads(request.body)
+        Rol.objects.create(
+            id_rol=jd['id_rol'], 
+            rol_usuario=jd['rol_usuario'],
+        )
         datos={'mensaje': " Exitoso" }
         return JsonResponse(datos)
 
@@ -276,6 +304,16 @@ class ViewTienda(View):
             return JsonResponse(datos)
 
     def post(self, request):
+        jd=json.loads(request.body)
+        Tienda.objects.create(
+            id_tienda=jd['id_tienda'], 
+            nombre=jd['nombre'],
+            direccion = jd['direccion'],
+            correo = jd['correo'],
+            telefono = jd['telefono'],
+            responsable = jd['responsable'],
+            password = jd['password']
+        )
         datos={'mensaje': " Exitoso" }
         return JsonResponse(datos)
 
@@ -334,6 +372,15 @@ class ViewVenta(View):
             return JsonResponse(datos)
 
     def post(self, request):
+        jd=json.loads(request.body)
+        Venta.objects.create(
+            id_venta=jd['id_venta'],
+            id_usuario = Usuario.objects.get(id_usuarios = jd['id_usuario']), 
+            id_producto = Producto.objects.get(id_producto = jd['id_producto']), 
+            cantidad=jd['cantidad'],
+            precio = jd['precio'],
+            
+        )
         datos={'mensaje': " Exitoso" }
         return JsonResponse(datos)
 
@@ -342,10 +389,10 @@ class ViewVenta(View):
         ventas= list(Venta.objects.filter(id_venta = id).values())
         if len(ventas) >0:
             venta = Venta.objects.get(id_venta = id)
+            venta.id_usuario = Usuario.objects.get(id_usuarios = jd['id_usuario'])
+            venta.id_producto =Producto.objects.get(id_producto = jd['id_producto'])
             venta.cantidad = jd['cantidad']
             venta.precio = jd['precio']
-            venta.id_producto_id = jd['id_producto_id']
-            venta.id_usuario_id = jd['id_usuario_id']
             venta.save()
             datos={'mensaje': " Exitoso" }
         else:
