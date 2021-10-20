@@ -13,7 +13,7 @@ class Rol(models.Model):
 
 
 class Usuario(models.Model):
-    id_usuarios = models.CharField(primary_key=True,max_length=100)
+    #id_usuarios = models.BigAutoField(auto_created = True, primary_key=True,serialize=False)
     nombre = models.CharField(max_length=45)
     apellido = models.CharField(max_length=45)
     edad = models.IntegerField(null=True)

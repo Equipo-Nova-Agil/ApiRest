@@ -37,7 +37,7 @@ class ViewUsuario(View):
     def post(self, request):
         jd=json.loads(request.body)
         Usuario.objects.create(
-            id_usuarios=jd['id_usuarios'], 
+            #id_usuarios=jd['id_usuarios'], 
             nombre=jd['nombre'],
             edad = jd['edad'],
             genero = jd['genero'],
