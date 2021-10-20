@@ -78,9 +78,9 @@ class ViewUsuario(View):
 
 
     def delete(self, request,id):
-        usuario = list(Usuario.objects.filter(id_usuario =id).values())
+        usuario = list(Usuario.objects.filter(id_usuarios =id).values())
         if len(usuario) >0:
-            Usuario.objects.filter(id_usuario = id).delete()
+            Usuario.objects.filter(id_usuarios = id).delete()
             datos={'mensaje': " Exitoso" }
         else:
             datos={'mensaje': "No se encontro el usuario"}
@@ -400,8 +400,8 @@ class ViewVenta(View):
         return JsonResponse(datos)
 
     def delete(self, request,id):
-        venta = list(Venta.objects.filter(id_venta =id).values())
-        if len(venta) >0:
+        ventas = list(Venta.objects.filter(id_venta =id).values())
+        if len(ventas) >0:
             Venta.objects.filter(id_venta = id).delete()
             datos={'mensaje': " Exitoso" }
         else:
