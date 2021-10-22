@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Estado',
             fields=[
-                ('id_estado', models.IntegerField(primary_key=True, serialize=False)),
+                ('id_estado', models.CharField(primary_key=True, serialize=False, max_length=100)),
                 ('estado', models.CharField(max_length=30)),
             ],
         ),
@@ -32,14 +32,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Rol',
             fields=[
-                ('id_rol', models.IntegerField(primary_key=True, serialize=False)),
+                ('id_rol', models.CharField(primary_key=True, serialize=False, max_length=100)),
                 ('rol_usuario', models.CharField(max_length=20)),
             ],
         ),
         migrations.CreateModel(
             name='Tienda',
             fields=[
-                ('id_tienda', models.IntegerField(primary_key=True, serialize=False)),
+                ('id_tienda', models.CharField(primary_key=True, serialize=False, max_length=100)),
                 ('nombre', models.CharField(max_length=45, unique=True)),
                 ('direccion', models.CharField(max_length=100)),
                 ('correo', models.CharField(max_length=100, unique=True)),
@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Usuario',
             fields=[
-                ('id_usuarios', models.IntegerField(primary_key=True, serialize=False)),
+                ('id_usuarios', models.CharField(primary_key=True, serialize=False, max_length=100)),
                 ('nombre', models.CharField(max_length=45)),
                 ('apellido', models.CharField(max_length=45)),
                 ('edad', models.IntegerField(null=True)),
@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Venta',
             fields=[
-                ('id_venta', models.IntegerField(primary_key=True, serialize=False)),
+                ('id_venta', models.CharField(primary_key=True, serialize=False, max_length=100)),
                 ('cantidad', models.IntegerField()),
                 ('precio', models.FloatField()),
                 ('id_producto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.producto')),
