@@ -39,6 +39,7 @@ class ViewUsuario(View):
         Usuario.objects.create(
             id_usuarios=jd['id_usuarios'], 
             nombre=jd['nombre'],
+            apellido=jd['apellido'],
             edad = jd['edad'],
             genero = jd['genero'],
             correo = jd['correo'],
