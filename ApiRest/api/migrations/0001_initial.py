@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Producto',
             fields=[
-                ('id_producto', models.FloatField(primary_key=True, serialize=False)),
+                ('id_producto', CharField(primary_key=True, serialize=False, max_length=100)),
                 ('nombre', models.CharField(max_length=45)),
                 ('precio', models.FloatField()),
                 ('seccion', models.CharField(max_length=45)),

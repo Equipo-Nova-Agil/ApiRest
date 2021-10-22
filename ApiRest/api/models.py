@@ -40,7 +40,7 @@ class Tienda(models.Model):
 
 
 class Producto(models.Model):
-    id_producto = models.FloatField( primary_key=True)
+    id_producto = models.CharField( primary_key=True, max_length=100)
     id_tienda = models.ForeignKey(Tienda, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=45)
     precio = models.FloatField()
